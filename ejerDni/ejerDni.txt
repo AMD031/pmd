@@ -67,7 +67,7 @@ const misdnis = new ValidaDni(numerosDNI);
 
 
 for(const val of misdnis){
-  if(val!=null{
+  if(val!=null){
     console.log(val);
    }		
 }
