@@ -1,0 +1,74 @@
+interface Dni{
+    Ndni: number;
+    Letra: string;
+}
+
+class ValidaDni {
+    todoslosDNI: Dni[] = [];
+
+    index: number;
+    data: Dni[];
+
+    constructor(data: Array<Dni>) {
+        this.index = 0;
+        this.data = data;
+    }
+
+    [Symbol.iterator]() {	//este objeto hace que sea iterable 
+        return {
+            next: () => {
+              
+                 if (this.index < this.data.length) { 
+                    let i = this.index++;
+                   if (letraDni(this.data[i].Ndni) == this.data[i].Letra &&
+                       formatoDni(this.data[i].Ndni, this.data[i].Letra)) {
+
+                        return { done: false, value: this.data[i] };
+
+                    } else {
+
+                        return { done: false};
+                    }
+
+                } else {
+                    return { done: true }
+                }
+            }
+
+        }
+
+         function formatoDni(numero: number, letra: string):boolean {
+            let correcto = false;
+            let dni: string = "" + numero + letra;
+            let exp = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/i;
+            if (exp.test(dni) === true) {
+                correcto = true;
+            }
+            return correcto;
+        }
+
+        function letraDni(dni: number): string {
+            return "TRWAGMYFPDXBNJZSQVHLCKE".charAt(dni % 23);
+        }
+    }
+}
+
+let numerosDNI: Dni[] = [];
+numerosDNI.push({Ndni: 12345678, Letra:"Z"});
+numerosDNI.push({Ndni: 3423432, Letra: "F" });
+numerosDNI.push({Ndni: 87654321, Letra: "X" });
+numerosDNI.push({ Ndni: 43234432, Letra: "F" });
+numerosDNI.push({Ndni: 80808080, Letra: "H" });
+
+
+
+
+const misdnis = new ValidaDni(numerosDNI);
+
+
+for(const val of misdnis){
+  if(val!=null{
+    console.log(val);
+   }		
+}
+
