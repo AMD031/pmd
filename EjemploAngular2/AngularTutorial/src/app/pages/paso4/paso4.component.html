@@ -1,0 +1,28 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Nos centramos en Servicios y Observables (conexiones asíncronas)</h1>
+     <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Teléfono</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let contacto of contactos; index as i;" (click)="elegirContacto(contacto)">
+            <td>{{(i+1)}}</td>
+            <td>{{contacto.nombre}}</td>
+            <td>{{contacto.telefono}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button class="btn btn-primary" (click)="cargaLocal()">Carga Local</button>
+      <button class="btn btn-success" (click)="cargaRemota()">Carga Remota</button>
+      <hr>
+      <div class="progress" *ngIf="cargando">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+        </div>
+    </div>
+</div>
