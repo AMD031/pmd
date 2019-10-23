@@ -1,0 +1,25 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Nos centramos en directivas e interacción entre Componentes (@Input)</h1>
+     <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Teléfono</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let contacto of contactos; index as i;" (click)="elegirContacto(contacto)">
+            <td>{{(i+1)}}</td>
+            <td>{{contacto.nombre}}</td>
+            <td>{{contacto.telefono}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <app-usuarioallamar *ngIf="contactoElegido" [contacto]="contactoElegido"></app-usuarioallamar> 
+
+    </div>
+</div>
+
