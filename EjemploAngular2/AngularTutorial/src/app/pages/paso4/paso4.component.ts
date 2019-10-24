@@ -34,7 +34,7 @@ export class Paso4Component implements OnInit {
     this.misubscription=this.jS.cargaJSON().subscribe( data =>{
         console.log("FROM REMOTO:");
         console.log(data);
-        this.contactos=data.["contactos"];
+        this.contactos=data["contactos"];;
         this.cargando=false;
       },
       error=>{
@@ -66,4 +66,6 @@ export class Paso4Component implements OnInit {
     Ahorra código y no tenemos que gestionar la unsubscribe().
     A este tipo de variables se les suele nombrar con la sintaxis contactos$ por convenio
   */
+
+
 }

@@ -45,7 +45,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule,
     HttpClientModule
-  ],
+    ],
   providers: [ListadoService, ServicioJSONService],
   bootstrap: [AppComponent]
 })

@@ -1,30 +1,19 @@
 import { Injectable } from '@angular/core';
-import {HttpClient } from '@angular/common/http';
-import {environment} from '../../environments/environment';
-import { Observable } from 'rxjs';
 import { Contacto } from '../modelo/contacto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListadoService {
+  private listaContactos:Array<Contacto>=new Array();
+  
+  constructor() { }
 
-  constructor(private socket:HttpClient) { }
-
-  cargaJSON():Observable<Object>{
-    return this.socket.get(environment.JSONServiceURL);
+  nuevoContacto(c:Contacto){
+    this.listaContactos.push(c);
   }
-  cargaLocal(){
-    let clocal = [
-      {
-        nombre: 'Juan',
-        telefono: 123
-      },
-      {
-        nombre: 'María',
-        telefono: 456
-      }
-    ];
-    return clocal;
+
+  leeContactos():Array<Contacto>{
+    return this.listaContactos;
   }
 }
